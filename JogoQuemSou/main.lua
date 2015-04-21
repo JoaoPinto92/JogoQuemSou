@@ -1,8 +1,8 @@
 
- local coin = 5
 
 
-function funcaoCoin() coin = coin-1 end
+-- coin = 5
+local score = 5
 
 
 -- include background nvl1
@@ -47,23 +47,36 @@ dicatres.y = display.contentHeight/2 - -120
 dicatres.alpha=0
 
 
+ local scoreNumber = display.newText(score, 260, 460, nil, 22)
+ scoreNumber: setTextColor ( 1, 1, 1)
+ scoreNumber.sCale = 1.2
+ scoreNumber.yScale = 1.2
 
+ --group:insert(scoreText); --(quando usar storyboard)
  --função mostra dica (nivel 1)
-function botaoestrelaum:tap(event)   dicaum.alpha = 0.8 end
+function botaoestrelaum:tap(event)
+	 scoreNumber.text = tostring(tonumber(scoreNumber.text)-1)
+	 dicaum.alpha = 0.8	 
+end
 -- função esconde dica (nivel 1)
-function dicaum:tap(event)  dicaum.alpha = 0 end
-
+function dicaum:tap(event) dicaum.alpha = 0 end
+   
 
 -- apertando mostra dica (nivel 1)
 botaoestrelaum:addEventListener("tap", botaoestrelaum)
---onRelease = funcaoCoin() 
+    
 -- apertando esconde dica (nivel 1)
 dicaum:addEventListener("tap", dicaum)
 
 
 
+
  --função mostra dica (nivel 2)
-function botaoestreladois:tap(event)  dicadois.alpha = 0.8 end
+function botaoestreladois:tap(event)  
+	scoreNumber.text = tostring(tonumber(scoreNumber.text)-1)
+	dicadois.alpha = 0.8 
+end
+
 -- função esconde dica (nivel 2)
 function dicadois:tap(event)  dicadois.alpha = 0 end 
 
@@ -75,7 +88,11 @@ dicadois:addEventListener("tap", dicadois)
 
 
  --função mostra dica (nivel 3)
-function botaoestrelatres:tap(event)  dicatres.alpha = 0.8 end
+function botaoestrelatres:tap(event)
+    scoreNumber.text = tostring(tonumber(scoreNumber.text)-1)  
+	dicatres.alpha = 0.8 
+end
+
 -- função esconde dica (nivel 3)
 function dicatres:tap(event)  dicatres.alpha = 0 end 
 
@@ -86,10 +103,9 @@ dicatres:addEventListener("tap", dicatres)
 
 -- Include número de moedas
 
- 
- local textobj = display.newText(coin, 100, 50, native.systemFont, 28)
- textobj.x = display.contentWidth/2 + 100
- textobj.y = display.contentHeight/2 - -219 
+ --local textobj = display.newText(coin, 100, 50, native.systemFont, 28)
+ --textobj.x = display.contentWidth/2 + 100
+ --textobj.y = display.contentHeight/2 - -219 
 
 
 
